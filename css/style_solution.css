@@ -1,0 +1,154 @@
+
+
+body {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    margin:0;
+    padding:0;
+}
+
+.logo {
+    font-size:30px;
+    text-transform: uppercase;
+
+    background-color:#337ab7;
+    color:#fff;
+
+    display: inline-block;
+    height:80px;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    border-radius: 5px;
+
+    margin-top:10px;
+    margin-bottom:50px;
+}
+
+.stripe {
+    background-color:#337ab7;
+    width:100%;
+    height:15px;
+}
+
+.logo:before {
+    content:"\f155"; /* this could be unkown - very handy to create something in css when one wants to save html */
+    font-family: "FontAwesome", sans-serif;
+    display: inline-block;
+    margin-right:15px;
+}
+
+footer {
+    background-color:#f8f9fa;
+    height: 150px;
+    padding-top:20px;
+}
+
+/* the solution follows here: */
+
+/* task a) */
+
+header .inner {
+    width:990px;
+    margin:0 auto;
+}
+
+#main .inner {
+    width:990px;
+    margin:0 auto;
+}
+
+footer .inner {
+    width:990px;
+    margin:0 auto;
+}
+
+/* an equal solution for task a) that saves some work: */
+
+header .inner, #main .inner, footer .inner {
+    width:990px;
+    margin:0 auto;
+}
+
+
+/* task b) */
+
+/* at first get rid of those bulletpoints */
+/* also get rid of the margin and padding */
+
+header nav ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+/* remove the underline of the anchor tags */
+header nav a {
+    text-decoration: none;
+}
+
+/* style the mainpoints and subpoints according to the screenshots */
+header nav .level_1 li a {
+    color:#337ab7;
+    font-size:16px;
+    font-weight: 700;
+}
+
+header nav .level_2 li a {
+    font-weight: 400;
+    font-size:14px;
+}
+
+header nav .level_2 {
+    background-color:#fff;
+}
+
+header nav .level_2 li:hover {
+    background-color:#337ab7;
+}
+
+header nav .level_2 li:hover a {
+    color:#fff;
+}
+
+header nav {
+    margin-bottom:10px;
+}
+
+/* ensure a specific size for the subpoints */
+/* several possebilities: a fixed width for the second level anchor tags */
+/* I choosed to use table-row and table-cell just to show you, the behaviour of those two properties */
+header nav .level_2 li {
+    display: table-row;
+    width: 100%;
+}
+header nav .level_2 a {
+    display: table-cell;
+    min-width: 200px;
+    padding:10px 5px;
+}
+
+/* hide the second level of the navigation by default : */
+header nav .level_2 {
+    display: none; /* but - if you do that to early - you will have difficulties to style everything accordingly */
+}
+
+/* now a trick - how to get the subnavigation to a certain point relative to the mainnavigation */
+/* position realtive - and position absolute :*/
+
+header nav .level_1 li {
+    display: inline-block;
+    position: relative;
+    margin-right:10px; /* just for some space between the main items */
+}
+
+header nav .level_2 {
+    position: absolute;
+}
+
+/* the final trick: show the second level of the navigation only when we are with our mouse over an listitem of the first level */
+header nav .level_1 li:hover .level_2 {
+    display: block;
+}
